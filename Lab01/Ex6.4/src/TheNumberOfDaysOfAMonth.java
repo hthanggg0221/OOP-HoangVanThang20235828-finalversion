@@ -78,6 +78,7 @@ public class TheNumberOfDaysOfAMonth {
             case "august":
             case "aug.":
             case "aug":
+            case "8":
                 return 8;
 
             case "september":
