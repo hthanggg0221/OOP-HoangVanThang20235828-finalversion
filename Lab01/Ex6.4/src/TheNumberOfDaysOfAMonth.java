@@ -62,6 +62,7 @@ public class TheNumberOfDaysOfAMonth {
                 return 4;
 
             case "may":
+            case "may.":
             case "5":
                 return 5;
 
