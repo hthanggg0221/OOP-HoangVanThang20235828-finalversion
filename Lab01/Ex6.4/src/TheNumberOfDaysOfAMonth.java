@@ -66,11 +66,13 @@ public class TheNumberOfDaysOfAMonth {
                 return 5;
 
             case "june":
+            case "jun."
             case "jun":
             case "6":
                 return 6;
 
             case "july":
+            case "jul."
             case "jul":
             case "7":
                 return 7;
