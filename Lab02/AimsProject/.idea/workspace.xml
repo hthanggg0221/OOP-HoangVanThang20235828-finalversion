@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c56c4595-78f4-4d28-9898-f84a8faac2c4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AimsProject/Cart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AimsProject/Cart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AimsProject/DigitalVideoDisc.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AimsProject/DigitalVideoDisc.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DigitalVideoDisc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DigitalVideoDisc.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +45,7 @@
     "Application.TestPassingParameter.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "topic/passing-parameter",
+    "git-widget-placeholder": "topic/classifier-and-instance-member",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/HOANG VINH/OneDrive - Hanoi University of Science and Technology/projects/OOP-HoangVanThang20235828-finalversion/Lab02/AimsProject",
