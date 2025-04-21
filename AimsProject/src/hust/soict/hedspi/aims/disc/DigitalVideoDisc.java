@@ -78,5 +78,4 @@ public class DigitalVideoDisc {
         return "DVD - " + getTitle() + " - " + getCategory() + " - " + getDirector() + " - " + getLength() + ": " + getCost() + "$";
     }
 
-
 }

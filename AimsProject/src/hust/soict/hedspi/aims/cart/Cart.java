@@ -88,7 +88,7 @@ public class Cart {
         System.out.printf("%-3s %-20s %10.2f\n", "", "Total Cost", totalCost());
     }
 
-    public void printOrderedItems() {
+    public void print() {
         System.out.println("***********************CART***********************");
         System.out.println("Ordered Items:");
         for (int i = 0; i < qtyOrdered; i++) {
@@ -98,7 +98,4 @@ public class Cart {
         System.out.println("***************************************************");
     }
 
-    public void searchByID() {
-
-    }
 }
