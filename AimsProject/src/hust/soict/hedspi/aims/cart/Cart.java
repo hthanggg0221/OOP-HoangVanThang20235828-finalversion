@@ -98,4 +98,46 @@ public class Cart {
         System.out.println("***************************************************");
     }
 
+    public void searchByID(int id) {
+        if (qtyOrdered == 0) {
+            System.out.println("The cart is empty!");
+            return;
+        }
+
+        boolean found = false;
+
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (id == itemsOrdered[i].getId()) {
+                System.out.println(itemsOrdered[i].toString());
+                System.out.println("---------------------------------------------------");
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No matching titles found for \"" + id + "\".");
+        }
+    }
+
+    public void searchByTitle(String title) {
+        if (qtyOrdered == 0) {
+            System.out.println("The cart is empty!");
+            return;
+        }
+
+        boolean found = false;
+
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemsOrdered[i].isMatch(title)) {
+                System.out.println(itemsOrdered[i].toString());
+                System.out.println("---------------------------------------------------");
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No matching titles found for \"" + title + "\".");
+        }
+    }
+
 }
