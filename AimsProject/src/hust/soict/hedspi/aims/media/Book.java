@@ -4,18 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Book {
-    private int id;
-    private String title;
-    private String category;
-    private float cost;
+public class Book extends Media {
     private List<String> authors = new ArrayList<String>();
 
+    public List<String> getAuthors() {
+        return authors;
+    }
+
     public Book() {
-        this.id = 0;
-        this.title = "";
-        this.category = "";
-        this.cost = 0.0f;
+        super();
+    }
+
+    public Book(String title, String category, float cost, List<String> authors) {
+        super(title, category, cost);
+        this.authors = authors;
     }
 
     public Book(int id, String title, String category, float cost) {
@@ -25,37 +27,7 @@ public class Book {
         this.cost = cost;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public float getCost() {
-        return cost;
-    }
-
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
-
-    public List<String> getAuthors() {
-        return authors;
-    }
 
     public void addAuthor(String authorName) {
         for (String i : authors) {
