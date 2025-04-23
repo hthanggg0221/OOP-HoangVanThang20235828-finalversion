@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CompareDisc extends Disc implements Playable{
+public class CompactDisc extends Disc implements Playable{
     private String artist;
     private List<Track> tracks = new ArrayList<Track>();
 
@@ -12,20 +12,20 @@ public class CompareDisc extends Disc implements Playable{
         return artist;
     }
 
-    public CompareDisc() {
+    public CompactDisc() {
         super();
     }
 
-    public CompareDisc(String title, String category, float cost) {
+    public CompactDisc(String title, String category, float cost) {
         super(title, category, cost);
     }
 
-    public CompareDisc(String title, String category, float cost, String artist) {
+    public CompactDisc(String title, String category, float cost, String artist) {
         super(title, category, cost);
         this.artist = artist;
     }
 
-    public CompareDisc(String title, String category, String director, int length, float cost, String artist) {
+    public CompactDisc(String title, String category, float cost, String artist, int length, String director) {
         super(title, category, director, length, cost);
         this.artist = artist;
     }
