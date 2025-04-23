@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CompareDisc extends Disc{
+public class CompareDisc extends Disc implements Playable{
     private String artist;
     private List<Track> tracks = new ArrayList<Track>();
 
@@ -58,5 +58,16 @@ public class CompareDisc extends Disc{
             totalLength += track.getLength();
         }
         return totalLength;
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing CD: " + this.getTitle());
+        System.out.println("CD length: " + this.getLength());
+
+        System.out.println("Information of Compact Disc : \n");
+        for (Track track : tracks) {
+            track.play();
+        }
     }
 }
