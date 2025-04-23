@@ -21,13 +21,8 @@ public class Book extends Media {
     }
 
     public Book(int id, String title, String category, float cost) {
-        this.id = id;
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
+        super(id, title, category, cost);
     }
-
-
 
     public void addAuthor(String authorName) {
         for (String i : authors) {
