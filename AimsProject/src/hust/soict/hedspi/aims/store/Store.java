@@ -34,4 +34,27 @@ public class Store {
             System.out.println(media.getTitle() + " is not in the store.");
         }
     }
+
+    public void print() {
+        System.out.println("***********************STORE***********************");
+        System.out.println("Ordered Items:");
+        for (int i = 0; i < itemsInStore.size(); i++) {
+            System.out.println(i + 1 + ". " + itemsInStore.get(i).toString());
+        }
+        System.out.println("***************************************************");
+    }
+
+    public Media findMediaByTitle(String titleToPlay) {
+        for (int i = 0; i < itemsInStore.size(); i++) {
+            if (isMatch(itemsInStore.get(i).getTitle(), titleToPlay)) {
+                System.out.println(itemsInStore.get(i).toString());
+                return itemsInStore.get(i);
+            }
+        }
+        return null;
+    }
+
+    public boolean isMatch(String mediaTitle, String inputTitle) {
+        return mediaTitle.contains(inputTitle);
+    }
 }

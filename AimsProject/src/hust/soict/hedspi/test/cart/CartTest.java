@@ -6,16 +6,18 @@ import hust.soict.hedspi.aims.media.DigitalVideoDisc;
 public class CartTest {
     public static void main(String[] args) {
         Cart cart = new Cart();
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("Metaphor Refantazio", "Animation", "Atlus", 123, 59.99f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Warhammer 40K", "Sci-Fi", "Game workshop",117, 59.99f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Titanic", "Romance", "James Cameroon", 195, 19.99f);
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc("The Dark Knight", "Action", "Christopher Nolan", 152, 29.99f);
+        DigitalVideoDisc dvd5 = new DigitalVideoDisc("Sword Art Online", "Animation", "A1", 134, 49.99f);
 
-        DigitalVideoDisc dvd1 =  new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
-        cart.addDigitalVideoDisc(dvd1);
 
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
-        cart.addDigitalVideoDisc(dvd2);
-
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
-        cart.addDigitalVideoDisc(dvd3);
-
+        DigitalVideoDisc[]  dvdList = {dvd1,dvd2, dvd3, dvd4, dvd5};
+        cart.addMedia(dvdList);
         cart.print();
+        cart.searchByID(5);
+        cart.searchTitle("hahaha");
+        cart.searchTitle("Metaphor");
     }
 }

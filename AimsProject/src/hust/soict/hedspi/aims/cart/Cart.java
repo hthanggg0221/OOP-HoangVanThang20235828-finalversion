@@ -4,6 +4,9 @@ import hust.soict.hedspi.aims.media.Media;
 
 import java.util.ArrayList;
 
+import static hust.soict.hedspi.aims.media.Media.COMPARE_BY_COST_TITLE;
+import static hust.soict.hedspi.aims.media.Media.COMPARE_BY_TITLE_COST;
+
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
@@ -15,6 +18,31 @@ public class Cart {
         }
         else {
             System.out.println("The cart is almost full");
+        }
+    }
+    public void addMedia(Media media1, Media media2) { // Bui Quang Phuong 20235809
+        if (itemsOrdered.size() > MAX_NUMBERS_ORDERED) {
+            System.out.println("MAX NUMBERS ORDERED REACHED");
+            return;
+        }
+        itemsOrdered.add(media1);
+        System.out.println("Product " + media1.getTitle() + " added successfully");
+        if (itemsOrdered.size() > MAX_NUMBERS_ORDERED) {
+            System.out.println("MAX NUMBERS ORDERED REACHED");
+            return;
+        }
+        itemsOrdered.add(media2);
+        System.out.println("Product " + media2.getTitle() + " added successfully");
+    }
+    public void addMedia(Media[] mediaList) { // Bui Quang Phuong 20235809
+        for (Media media : mediaList) {
+            // Assuming hust.soict.ite6.aims.cart.Cart class handles this method to add DVDs
+            if (itemsOrdered.size() > MAX_NUMBERS_ORDERED) {
+                System.out.println("MAX NUMBERS ORDERED REACHED");
+                return;
+            }
+            itemsOrdered.add(media);
+            System.out.println("Product " + media.getTitle() + " added successfully");
         }
     }
 
@@ -76,7 +104,7 @@ public class Cart {
         }
     }
 
-    public void searchByTitle(String title) {
+    public void searchTitle(String title) {
         if (itemsOrdered.isEmpty()) {
             System.out.println("The cart is empty!");
             return;
@@ -97,4 +125,30 @@ public class Cart {
         }
     }
 
+    public Media searchByTitle(String titleToPlay) {
+        boolean found = false;
+        for (int i = 0; i < itemsOrdered.size(); i++) {
+            if (isMatch(itemsOrdered.get(i).getTitle(), titleToPlay)) {
+                return itemsOrdered.get(i);
+            }
+        }
+        return null;
+    }
+
+    public boolean isMatch(String mediaTitle, String inputTitle) {
+        return mediaTitle.contains(inputTitle);
+    }
+
+    public void emptyCart() {
+        itemsOrdered.clear();
+        System.out.println("The cart has been emptied.");
+    }
+
+    public void sortCartByTitleAndCost() {
+        itemsOrdered.sort(COMPARE_BY_TITLE_COST);
+    }
+
+    public void sortCartByCostAndTitle() {
+        itemsOrdered.sort(COMPARE_BY_COST_TITLE);
+    }
 }
