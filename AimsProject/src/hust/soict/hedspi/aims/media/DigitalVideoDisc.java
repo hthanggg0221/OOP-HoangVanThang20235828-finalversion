@@ -1,6 +1,20 @@
 package hust.soict.hedspi.aims.media;
 
-public class DigitalVideoDisc extends Media {
+import hust.soict.hedspi.aims.media.Disc;
+public class DigitalVideoDisc extends Disc {
+
+    public DigitalVideoDisc() {
+        super();
+    }
+
+    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+        super(title, category, director, length, cost);
+    }
+
+    public DigitalVideoDisc(String title, float cost) {
+        super(title, cost);
+    }
+
     public DigitalVideoDisc(String title) {
         super(title);
     }
@@ -9,14 +23,7 @@ public class DigitalVideoDisc extends Media {
         super(title, category, cost);
     }
 
-    public boolean isMatch(String title) {
-        String[] tmp = title.split(" ", 0);
-        for (String s: tmp) {
-            if (getTitle().toLowerCase().contains(s.toLowerCase())) {
-                return true;
-            }
-        }
-        return false;
+    public DigitalVideoDisc(String title, String category, String director, float cost) {
+        super(title, category, director, cost);
     }
-
 }
