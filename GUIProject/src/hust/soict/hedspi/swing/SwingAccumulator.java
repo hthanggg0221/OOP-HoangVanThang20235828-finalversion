@@ -17,15 +17,16 @@ public class SwingAccumulator extends JFrame {
 
         cp.add(new JLabel("Enter an Integer: "));
         tfInput = new JTextField(10);
+        cp.add(tfInput);
         tfInput.addActionListener(new TFInputListener());
 
         cp.add(new JLabel("The accumulated Sum is: "));
 
-        tfOutput = new JTextField();
+        tfOutput = new JTextField(10);
         tfOutput.setEditable(false);
         cp.add(tfOutput);
 
-        setTitle("Swing Accumulstor");
+        setTitle("Swing Accumulator");
         setSize(350, 120);
         setVisible(true);
     }
