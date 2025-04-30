@@ -2,6 +2,7 @@ package hust.soict.hedspi.aims;
 
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.*;
+import hust.soict.hedspi.aims.screen.manager.StoreManagerScreen;
 import hust.soict.hedspi.aims.store.Store;
 
 import java.util.ArrayList;
@@ -10,8 +11,9 @@ import java.util.Scanner;
 
 public class Aims {
     static Scanner scanner = new Scanner(System.in);
-    static Store store = new Store();
-    static Cart cart = new Cart();
+    private static Store store = new Store();
+    private static Cart cart = new Cart();
+    private static StoreManagerScreen storeManagerScreen;
 
     public static void showMenu() {
         System.out.println("AIMS: ");
@@ -89,6 +91,14 @@ public class Aims {
         System.out.println("Please choose a number: 0-1-2");
     }
 
+    public static Store getStore() {
+        return store;
+    }
+
+    public static StoreManagerScreen getStoreManagerScreen() {
+        return storeManagerScreen;
+    }
+
     public static void main(String[] args){
         CompactDisc cd1= new CompactDisc("P3 Reload OST", "Music", 10.99f, "Atlus", 180, "Atlus");
         CompactDisc cd2 = new CompactDisc("Epilogue", "Pop", 12.99f, "HVT", 170, "HVT");
@@ -108,6 +118,7 @@ public class Aims {
         Book book4 = new Book("The Hobbit", "Fantasy", 10.49f);
         Book book5 = new Book("The Catcher in the Rye", "Classic", 6.99f);
 
+        storeManagerScreen = new StoreManagerScreen(store);
         List<Media> media = new ArrayList<Media>();
         media.add(cd2);
         media.add(dvd1);
