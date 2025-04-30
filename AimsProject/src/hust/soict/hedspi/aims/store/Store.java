@@ -8,6 +8,10 @@ public class Store {
     public static final int MAX_ITEMS_NUMBERED = 100;
     private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 
+    public ArrayList<Media> getItemsInStore() {
+        return itemsInStore;
+    }
+
     public void addMedia(Media media) {
         if (itemsInStore.contains(media))
             System.out.println(media.getTitle() + " is already in the store.");
@@ -16,7 +20,7 @@ public class Store {
         }
         if (itemsInStore.size() < MAX_ITEMS_NUMBERED) {
             itemsInStore.add(media);
-            System.out.println("The disc " + media.getTitle() + " has been added in the hust.soict.dsai.aims.store.Store");
+            System.out.println("The media " + media.getTitle() + " has been added in the hust.soict.dsai.aims.store.Store");
         } else {
             System.out.println("The store is already full");
         }
