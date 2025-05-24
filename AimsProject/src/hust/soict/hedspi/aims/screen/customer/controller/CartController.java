@@ -4,14 +4,23 @@ import com.sun.javafx.charts.Legend;
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
+import hust.soict.hedspi.aims.screen.customer.PlaceOrderScreen;
 import hust.soict.hedspi.aims.store.Store;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
+import javax.swing.*;
+import java.io.IOException;
 
 public class CartController {
     private Cart cart;
@@ -129,7 +138,9 @@ public class CartController {
 
     @FXML
     void btnPlayPressed(ActionEvent event) {
-
+        Media media = tblMedia.getSelectionModel().getSelectedItem();
+        ((Playable) media).play();
+        JOptionPane.showMessageDialog(null,String.format("%s is playing", media.getTitle() ));
     }
 
     @FXML
@@ -140,8 +151,28 @@ public class CartController {
 
     @FXML
     void btnViewStorePressed(ActionEvent event) {
-
+        try {
+            final String STORE_FXML_FILE_PATH = "/hust/soict/hedspi/aims/screen/customer/view/Store.fxml";
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(STORE_FXML_FILE_PATH));
+            fxmlLoader.setController(new ViewStoreController(store, cart));
+            Parent root = fxmlLoader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Store");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    @FXML
+    void btnPlaceOrderPressed(ActionEvent event) {
+        if (cart.getItemsOrdered().isEmpty())
+            JOptionPane.showMessageDialog(null, "Cart is empty!", "Error", JOptionPane.ERROR_MESSAGE);
+        else {
+            new PlaceOrderScreen();
+            updateTotalCost();
+        }
+    }
 }
 

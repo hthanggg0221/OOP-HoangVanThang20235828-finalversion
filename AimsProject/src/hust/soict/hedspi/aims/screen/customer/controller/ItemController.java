@@ -47,16 +47,13 @@ public class ItemController {
 
     @FXML
     private void btnPlayClicked(ActionEvent event) {
-//        try {
-//            if (media instanceof hust.soict.hedspi.aims.media.Playable) {
-//                ((hust.soict.hedspi.aims.media.Playable) media).play();
-//            }
-//        } catch (PlayerException e) {
-//            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
-//            alert.showAndWait();
-//        }
-        if (media instanceof hust.soict.hedspi.aims.media.Playable) {
-            ((hust.soict.hedspi.aims.media.Playable) media).play();
+        try {
+            if (media instanceof hust.soict.hedspi.aims.media.Playable) {
+                ((hust.soict.hedspi.aims.media.Playable) media).play();
+            }
+        } catch (PlayerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
+            alert.showAndWait();
         }
     }
 
