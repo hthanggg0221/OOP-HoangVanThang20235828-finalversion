@@ -85,6 +85,15 @@ public abstract class Media {
         return title.equals(media.title);
     }
 
+    public boolean isMatch(String title) {
+        String[] keywords = title.split("\\s+");
+        for (String word : keywords) {
+            if (this.title.toLowerCase().contains(word.toLowerCase()))
+                return true;
+        }
+        return false;
+    }
+
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 }
