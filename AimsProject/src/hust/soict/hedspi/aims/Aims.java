@@ -1,6 +1,7 @@
 package hust.soict.hedspi.aims;
 
 import hust.soict.hedspi.aims.cart.Cart;
+import hust.soict.hedspi.aims.exception.PlayerException;
 import hust.soict.hedspi.aims.media.*;
 import hust.soict.hedspi.aims.screen.manager.StoreManagerScreen;
 import hust.soict.hedspi.aims.store.Store;
@@ -13,6 +14,7 @@ public class Aims {
     static Scanner scanner = new Scanner(System.in);
     private static Store store = new Store();
     private static Cart cart = new Cart();
+    private static Media media;
     private static StoreManagerScreen storeManagerScreen;
 
     public static Cart getCart() {
@@ -103,7 +105,7 @@ public class Aims {
         return storeManagerScreen;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws PlayerException {
         CompactDisc cd1= new CompactDisc("P3 Reload OST", "Music", 10.99f, "Atlus", 180, "Atlus");
         CompactDisc cd2 = new CompactDisc("Epilogue", "Pop", 12.99f, "HVT", 170, "HVT");
         CompactDisc cd3 = new CompactDisc("Nightcore Hits", "Remix", 8.99f, "Various Artists", 200, "Various");
@@ -433,14 +435,19 @@ public class Aims {
                 String titleToPlay = scanner.nextLine();
 
                 Media mediaToPlay = cart.searchByTitle(titleToPlay);
-                if (mediaToPlay != null) {
-                    if (mediaToPlay instanceof Playable) {
-                        ((Playable) mediaToPlay).play();
+                try {
+                    if (media instanceof Playable) {
+                        ((Playable) media).play();
                     } else {
-                        System.out.println("The selected media is not playable.");
+                        System.out.println("Cannot play this media: " + media.getTitle());
                     }
-                } else {
-                    System.out.println("Media not found in the cart.");
+                } catch (PlayerException e) {
+                    System.err.println("Exception while playing media: " + media.getTitle());
+                    System.err.println(e.getMessage());
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    System.err.println("Unexpected exception: " + e.getMessage());
+                    e.printStackTrace();
                 }
                 break;
             case 5:
