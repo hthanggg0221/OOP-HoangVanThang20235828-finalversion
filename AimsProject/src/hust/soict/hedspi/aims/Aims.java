@@ -15,6 +15,10 @@ public class Aims {
     private static Cart cart = new Cart();
     private static StoreManagerScreen storeManagerScreen;
 
+    public static Cart getCart() {
+        return cart;
+    }
+
     public static void showMenu() {
         System.out.println("AIMS: ");
         System.out.println("--------------------------------");
